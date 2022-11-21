@@ -1,0 +1,18 @@
+
+<form (ngSubmit)="register()">
+    <div class="container w-50 border mt-5 p-3" style="background: rgba(95, 88, 88); border-radius: 25px;">
+        <h1 class="text-center text-white">Register Page</h1>
+        <div class="mt-2 p-2">
+            <input [(ngModel)]="uname"  name="uname" placeholder="Username" type="text" class="form-control" id="uid">
+        </div>
+        <div class="mt-2 p-2">
+            <input [(ngModel)]="acno" name="acno" type="text" placeholder="Ac number" class="form-control" id="acid">
+        </div>
+        <div class="mt-2 p-2">
+            <input [(ngModel)]="psw" name="psw" type="password" placeholder="Passsword" class="form-control" id="pid">
+        </div>
+        <div class="text-center mt-2 p-2">
+            <button type="submit" class="btn btn-outline-info">Register</button><br><br>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,40 @@
+<div><h3 class="p-3 text-info">Welcome {{user}}</h3></div>
+
+<div style="border-radius: 50px;" class="p-3 bg-white w-25 ms-3 text-center border border-info"><a style="text-decoration: none;" routerLink="/transaction">View transaction history</a></div>
+
+<form (ngSubmit)="deposit()">
+    <div class="container w-50 border mt-5 p-3" style="background: rgba(57, 87, 79, 0.5); border-radius: 25px;">
+        <h1 class="text-center text-white">Deposit</h1>
+        <div class="mt-2 p-2">
+            <input [(ngModel)]="acno" name="uname1" placeholder="Ac number" type="text" class="form-control" id="acid1">
+        </div>
+        <div class="mt-2 p-2">
+            <input [(ngModel)]="psw" name="pswd1" type="password" placeholder="Password" class="form-control" id="psid1">
+        </div>
+        <div class="mt-2 p-2">
+            <input [(ngModel)]="amnt" name="amnd1" type="text" placeholder="Amount" class="form-control" id="amid1">
+        </div>
+        <div class="text-center mt-2 p-2">
+            <button type="submit" class="btn btn-outline-light">Deposit</button><br><br>
+        </div>
+    </div>
+</form>
+
+
+<form (ngSubmit)="withdraw()">
+    <div class="container w-50 border mt-5 p-3" style="background: rgba(57, 87, 79, 0.5); border-radius: 25px;">
+        <h1 class="text-center text-white">Withdraw</h1>
+        <div class="mt-2 p-2">
+            <input [(ngModel)]="acno1" name="uname" placeholder="Ac number" type="text" class="form-control" id="acid">
+        </div>
+        <div class="mt-2 p-2">
+            <input [(ngModel)]="psw" name="pswd" type="password" placeholder="Password" class="form-control" id="psid">
+        </div>
+        <div class="mt-2 p-2">
+            <input [(ngModel)]="amnt" name="amnd" type="text" placeholder="Amount" class="form-control" id="amid">
+        </div>
+        <div class="text-center mt-2 p-2">
+            <button type="submit" class="btn btn-outline-light">Withdraw</button><br><br>
+        </div>
+    </div>
+</form>

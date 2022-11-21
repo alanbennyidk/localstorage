@@ -1,0 +1,17 @@
+<div><h2 class="text-info p-2">{{aim}}</h2></div> 
+
+<form (ngSubmit)="login()">
+    <div class="container w-25 border mt-5 p-3" style="background: rgba(95, 88, 88); border-radius: 25px;">
+        <h1 class="text-center text-white">Login Page</h1>
+        <div class="mt-2 p-2">
+            <input [(ngModel)]="acno"  name="acno" [placeholder]="data" type="text" class="form-control" id="acid"> <!-- ngModel  -->
+        </div>
+        <div class="mt-2 p-2">
+            <input [(ngModel)]="psw" name="psw" type="password" placeholder="Passsword" class="form-control" id="pid"><!-- ngModel  -->
+        </div>
+        <div class="text-center mt-2 p-2">
+            <button type="submit" class="btn btn-outline-info">Login</button><br><br><!-- ngModel  -->
+            <p class="text-white">new user?<a class="text-info"  routerLink="register">register</a></p>
+        </div>
+    </div>
+</form>
