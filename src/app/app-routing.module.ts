@@ -6,8 +6,8 @@ import { RegisterComponent } from './register/register.component';
 import { TransactionComponent } from './transaction/transaction.component';
 
 const routes: Routes = [
-  {path:'',component:LoginComponent},                   //redirection
-  {path:'dashboard',component:DashboardComponent},     //redirection
+  {path:'',component:LoginComponent},                   
+  {path:'dashboard',component:DashboardComponent},     
   {path:'register',component:RegisterComponent},
   {path:'transaction',component:TransactionComponent}
 ];

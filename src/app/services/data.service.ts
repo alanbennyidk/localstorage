@@ -6,6 +6,8 @@ import { Injectable } from '@angular/core';
 export class DataService {
 
   currentuser:any
+  currentacno:any
+
   //redundant data
 
   userDetails:any={
@@ -14,7 +16,33 @@ export class DataService {
     1002:{acno:1002,username:"arun",password:123,balance:0,transaction:[]},
     1003:{acno:1003,username:"mega",password:123,balance:0,transaction:[]}
   }
-  constructor() { }
+  constructor() { 
+    this.getData()
+  }
+
+  saveData(){   //to store all data  in a single method
+    if(this.userDetails){
+      localStorage.setItem('database',JSON.stringify(this.userDetails))
+    }
+    if(this.currentuser){
+      localStorage.setItem('currerntUser',JSON.stringify(this.currentuser))
+    }
+    if(this.currentacno){
+      localStorage.setItem('currentAcno',JSON.stringify(this.currentacno))
+    }
+  }
+
+  getData(){
+    if(localStorage.getItem('database')){
+      this.userDetails=JSON.parse(localStorage.getItem('database') || '')
+    }
+    if(localStorage.getItem('currentUser')){
+      this.currentuser=JSON.parse(localStorage.getItem('currentUser') || '')
+    }
+    if(localStorage.getItem('currentAcno')){
+      this.currentacno=JSON.parse(localStorage.getItem('currentAcno') || '')
+    }
+  }
 
   register(acno:any,username:any,password:any){
 
@@ -24,6 +52,7 @@ export class DataService {
     }
     else{
       userDetails[acno]={acno,username,password,balance:0,transaction:[]}
+      this.saveData()
       //console.log(userDetails);       //data check cheyyan
       return true
     }
@@ -36,8 +65,10 @@ export class DataService {
     this.currentuser=userDetails[acno]['username']
 
     if(acno in userDetails){
+      
       if(psw==userDetails[acno]['password']){
         this.currentuser=acno
+        this.saveData()
         return true
       }
       else{
@@ -61,7 +92,7 @@ export class DataService {
 
         //add deposit details in transaction array
         userDetails[acno]['transaction'].push({type:'CREDIT',amount})
-
+        this.saveData()
         return userDetails[acno]['balance']
       }
       else{
@@ -87,8 +118,7 @@ export class DataService {
 
         //add withdraw details in transaction array
         userDetails[acno]['transaction'].push({type:'DEBIT',amount})
-
-
+        this.saveData()
         return userDetails[acno]['balance']
       }
       else{
